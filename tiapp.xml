@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ti:app xmlns:ti="http://ti.appcelerator.org">
+    <property name="acs-oauth-secret-production" type="string">rs2glHo46wopVGB5lLkFpiCmbA48D4fY</property>
+    <property name="acs-oauth-key-production" type="string">dkJh3QsJ2z47AA0MFaHHrIOVsn5DvRpx</property>
+    <property name="acs-api-key-production" type="string">g0NnTAR9Tz5bhMo2v9FVKntmXW6OxYEX</property>
+    <property name="acs-oauth-secret-development" type="string">uhNsZropcBlIEMyyPtiVgckoVp5gVEut</property>
+    <property name="acs-oauth-key-development" type="string">D2BYcUPRgpb1XSitFISkZTtYsPcPTwJo</property>
+    <property name="acs-api-key-development" type="string">4vgF1H4BQ3LV1BNh17SXITPLnYrsoi6R</property>
+    <id>com.tekadept.calculator</id>
+    <name>Calculator</name>
+    <version>1.0</version>
+    <publisher>Troy</publisher>
+    <url>http://www.tekadept.com</url>
+    <description>not specified</description>
+    <copyright>2012 by Troy</copyright>
+    <icon>appicon.png</icon>
+    <persistent-wifi>false</persistent-wifi>
+    <prerendered-icon>false</prerendered-icon>
+    <statusbar-style>default</statusbar-style>
+    <statusbar-hidden>false</statusbar-hidden>
+    <fullscreen>false</fullscreen>
+    <navbar-hidden>false</navbar-hidden>
+    <analytics>true</analytics>
+    <guid>b341e377-2948-4f2f-965f-7b8592dca2bc</guid>
+    <property name="ti.ui.defaultunit" type="string">system</property>
+    <iphone>
+        <orientations device="iphone">
+            <orientation>Ti.UI.PORTRAIT</orientation>
+        </orientations>
+        <orientations device="ipad">
+            <orientation>Ti.UI.PORTRAIT</orientation>
+            <orientation>Ti.UI.UPSIDE_PORTRAIT</orientation>
+            <orientation>Ti.UI.LANDSCAPE_LEFT</orientation>
+            <orientation>Ti.UI.LANDSCAPE_RIGHT</orientation>
+        </orientations>
+    </iphone>
+    <android xmlns:android="http://schemas.android.com/apk/res/android"/>
+    <mobileweb>
+        <precache/>
+        <splash>
+            <enabled>true</enabled>
+            <inline-css-images>true</inline-css-images>
+        </splash>
+        <theme>default</theme>
+    </mobileweb>
+    <modules>
+        <module platform="commonjs">ti.cloud</module>
+    </modules>
+    <deployment-targets>
+        <target device="blackberry">false</target>
+        <target device="android">true</target>
+        <target device="ipad">true</target>
+        <target device="iphone">true</target>
+        <target device="mobileweb">true</target>
+    </deployment-targets>
+    <sdk-version>3.0.0.GA</sdk-version>
+</ti:app>
