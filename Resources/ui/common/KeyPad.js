@@ -1,4 +1,6 @@
-function KeyPad() {
+var KeyPad = {}; 
+
+KeyPad.View = function() {
     var isIOS = (Ti.Platform.osname === 'iphone' || Ti.Platform.osname === 'ipad'),
 	self = Ti.UI.createView({
 	    width: '80%',
@@ -15,7 +17,8 @@ function KeyPad() {
         left: '1%',
         height:'8%',
         width:'98%',
-        textAlign: 'right'
+        textAlign: 'right',
+        font: {fontSize: 28}
     }),
     keyPad = Ti.UI.createView ({
 	    width: '100%',
@@ -72,7 +75,7 @@ function KeyPad() {
         color: textColor,
         backgroundColor: backColor,
         borderRadius: radius,
-        title:'CE',
+        title:'9',
         top: '21%',
         left: '51%',
         height:'18%',
@@ -233,9 +236,14 @@ function KeyPad() {
 	    /* filter out all none keypad events */
         if(e.source.title) {
 		  /* fire an event for the keypad */
-          Ti.App.fireEvent('pressed.keypad', {key: e.source.title});
+          Ti.App.fireEvent('calc.keyPressed', {key: e.source.title});
 		}
 	});
+	
+    Ti.App.addEventListener('calc.updateDisplay', function(e){
+        display.setText(e.display);
+    });
+
 	
     self.add(display);
     self.add(keyPad);
