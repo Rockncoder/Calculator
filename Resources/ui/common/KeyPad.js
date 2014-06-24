@@ -232,13 +232,34 @@ KeyPad.View = function() {
     keyPad.add(buttonSubtract);
 	
 	/* Watch for a keypad event */
-	keyPad.addEventListener('click', function(e) {
-	    /* filter out all none keypad events */
-        if(e.source.title) {
-		  /* fire an event for the keypad */
-          Ti.App.fireEvent('calc.keyPressed', {key: e.source.title});
-		}
-	});
+    keyPad.addEventListener('click', function (e) {
+        /* filter out all none keypad events */
+        if (e.source.title) {
+            /* fire an event for the keypad */
+            Ti.App.fireEvent('calc.keyPressed', {key: e.source.title});
+        }
+    });
+
+    var oldColor = null;
+
+    keyPad.addEventListener('touchstart', function (e) {
+        /* filter out all none keypad events */
+        if (e.source.title) {
+            oldColor = e.source.backgroundColor;
+            /* fire an event for the keypad */
+            e.source.backgroundColor = 'red';
+        }
+    });
+
+    keyPad.addEventListener('touchend', function (e) {
+        /* filter out all none keypad events */
+        if (e.source.title) {
+            /* fire an event for the keypad */
+            setTimeout(function () {
+                e.source.backgroundColor = oldColor;
+            }, 100);
+        }
+    });
 	
     Ti.App.addEventListener('calc.updateDisplay', function(e){
         display.setText(e.display);
